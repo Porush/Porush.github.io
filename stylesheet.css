@@ -26,3 +26,11 @@ body {
     background-position:center;
     margin:-100px 0 0 -100px; /* is width and height divided by two */
 }
+
+#center {
+    font-family: 'Hind', sans-serif;
+    text-align: center;
+    font-size: 100px;
+    position: fixed;
+    bottom: calc(50% - 50px);
+}
