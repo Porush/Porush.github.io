@@ -1,6 +1,8 @@
 body {
     font-family: 'Hind', sans-serif;
     overflow: hidden;
+    /*background: #FFA5A9;*/
+    background: #03A9F4;
 }
 
 /* Preloader */
