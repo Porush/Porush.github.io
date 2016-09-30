@@ -24,17 +24,47 @@
   </script>
   <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async='async'></script>
   <script>
-    /*var OneSignal = window.OneSignal || [];
+    var OneSignal = window.OneSignal || [];
+    // Do NOT call init() twice
     OneSignal.push(["init", {
       appId: "682fed89-588e-415c-be29-ed503be3d91f",
       autoRegister: true, /* Set to true to automatically prompt visitors */
-      /*subdomainName: 'porush-manjhi-github',   
+      subdomainName: 'porush-manjhi-github',   
       notifyButton: {
           enable: true /* Set to false to hide */
-      /*}
+      }
+      notifyButton: {
+        enable: true, /* Required to use the notify button */
+        size: 'medium', /* One of 'small', 'medium', or 'large' */
+        theme: 'default', /* One of 'default' (red-white) or 'inverse" (white-red) */
+        position: 'bottom-right', /* Either 'bottom-left' or 'bottom-right' */
+        offset: {
+            bottom: '0px',
+            left: '0px', /* Only applied if bottom-left */
+            right: '0px' /* Only applied if bottom-right */
+        },
+        prenotify: true, /* Show an icon with 1 unread message for first-time site visitors */
+        showCredit: true, /* Hide the OneSignal logo */
+        text: {
+            'tip.state.unsubscribed': 'Subscribe to notifications',
+            'tip.state.subscribed': "You're subscribed to notifications",
+            'tip.state.blocked': "You've blocked notifications",
+            'message.prenotify': 'Click to subscribe to notifications',
+            'message.action.subscribed': "Thanks for subscribing!",
+            'message.action.resubscribed': "You're subscribed to notifications",
+            'message.action.unsubscribed': "You won't receive notifications again",
+            'dialog.main.title': 'Manage Site Notifications',
+            'dialog.main.button.subscribe': 'SUBSCRIBE',
+            'dialog.main.button.unsubscribe': 'UNSUBSCRIBE',
+            'dialog.blocked.title': 'Unblock Notifications',
+            'dialog.blocked.message': "Follow these instructions to allow notifications:"
+        }
+      }
+    }]);
+    /*OneSignal.push(["init", {
+      
     }]);*/
   </script>
-  <script charset="UTF-8" src="//cdn.sendpulse.com/js/push/5713a1e1f6fa4dbba9f9462f32621fe0_0.js" async></script>
   </head>
   <body>
     <!-- Preloader -->
