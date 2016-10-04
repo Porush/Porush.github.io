@@ -7,6 +7,7 @@
       //var url = "http://api.openweathermap.org/data/2.5/weather?lat=23.1828282&lon=77.4139166&APPID=66858e7a4a2f937d6774bc9860a9fe3c&callback=test";
       function getLocation() {
         if (navigator.geolocation) {
+          alert("geolocation");
           navigator.geolocation.getCurrentPosition(
             function(success) { 
               alert("Success");
@@ -14,6 +15,8 @@
             function(failure) {
               if(failure.message.indexOf("Only secure origins are allowed") == 0) {
                 alert("Secure Origin issue");
+              } else {
+                alert("Other issue");
               }
             };
           });
