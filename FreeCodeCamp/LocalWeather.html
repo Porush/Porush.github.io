@@ -5,9 +5,21 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <script>
       var url = "http://api.openweathermap.org/data/2.5/weather?lat=23.1828282&lon=77.4139166&APPID=66858e7a4a2f937d6774bc9860a9fe3c&callback=test";
-      $.getJSON("http://api.wunderground.com/api/a0b51a3c87e2d6a2/geolookup/conditions/q/autoip.json", function(data) {
+      function getLocation() {
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(showPosition);
+        } else {
+          x.innerHTML = "Geolocation is not supported by this browser.";
+        }
+      }
+      
+      function showPosition(position) {
+        //$.getJSON('http://api.openweathermap.org/data/2.5/weather?callback=?', {lat:23.1828282, lon:77.4139166, units:'metric', APPID:'66858e7a4a2f937d6774bc9860a9fe3c'}, function(){}).done(success).fail(fail);
+        alert("lat=" + position.coords.latitude + "&lon=" + position.coords.longitude);
+      }
+      /*$.getJSON("http://api.wunderground.com/api/a0b51a3c87e2d6a2/geolookup/conditions/q/autoip.json", function(data) {
         alert("data");
-      });
+      });*/
     </script>
   </head>
   <body>
