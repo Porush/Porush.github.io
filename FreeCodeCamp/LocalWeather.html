@@ -4,8 +4,13 @@
     <title>Local Weather</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <script>
-      var json = loadjson("http://api.openweathermap.org/data/2.5/weather?lat=23.1828282&lon=77.4139166&APPID=66858e7a4a2f937d6774bc9860a9fe3c&callback=test");
-      alert(JSON.stringify(json));
+      var url = "http://api.openweathermap.org/data/2.5/weather?lat=23.1828282&lon=77.4139166&APPID=66858e7a4a2f937d6774bc9860a9fe3c&callback=test";
+      $.ajax({
+      url: url,
+      dataType: "jsonp",
+      success: function(data) {
+        alert("url");
+      }
       /*$.getJSON("http://api.openweathermap.org/data/2.5/weather?lat=23.1828282&lon=77.4139166&APPID=66858e7a4a2f937d6774bc9860a9fe3c&callback=test", function(data) {
         alert("data");
       });*/
