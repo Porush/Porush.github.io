@@ -5,21 +5,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <script>
       var url = "http://api.openweathermap.org/data/2.5/weather?lat=23.1828282&lon=77.4139166&APPID=66858e7a4a2f937d6774bc9860a9fe3c&callback=test";
-      $.getJSON("http://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?",
-  {
-    tags: "awesome",
-    tagmode: "any",
-    format: "json"
-  },
-  function(data) {
-    $.each(data.items, function(i,item){
-      alert(item.media.m);
-    });
-  });
-});
-      /*$.getJSON("http://api.openweathermap.org/data/2.5/weather?lat=23.1828282&lon=77.4139166&APPID=66858e7a4a2f937d6774bc9860a9fe3c&callback=test", function(data) {
+      $.getJSON("http://api.wunderground.com/api/a0b51a3c87e2d6a2/geolookup/conditions/q/autoip.json", function(data) {
         alert("data");
-      });*/
+      });
     </script>
   </head>
   <body>
