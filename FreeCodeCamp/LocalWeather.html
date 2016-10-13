@@ -1,267 +1,266 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <title>Local Weather</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <script type="text/javascript">
-      //var url = "http://api.openweathermap.org/data/2.5/weather?lat=23.1828282&lon=77.4139166&APPID=66858e7a4a2f937d6774bc9860a9fe3c&callback=test";
-      function getLocation() {
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(
-      function(success) {
-        showWeather(success.coords.latitude, success.coords.longitude);
-      },
-      function(failure) {
-        if (failure.message.indexOf("Only secure origins are allowed") == 0) {
-          $(".notification").show();
-        } else if (failure.message.indexOf("User denide Geolocation") == 0) {
-          $(".notification").html("User denide Geolocation.");
-        } else {
-          $(".notification").html(failure.message);
+        //var url = "http://api.openweathermap.org/data/2.5/weather?lat=23.1828282&lon=77.4139166&APPID=66858e7a4a2f937d6774bc9860a9fe3c&callback=test";
+        function getLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(
+                    function(success) {
+                        showWeather(success.coords.latitude, success.coords.longitude);
+                    },
+                    function(failure) {
+                        if (failure.message.indexOf("Only secure origins are allowed") == 0) {
+                            $(".notification").show();
+                        } else if (failure.message.indexOf("User denide Geolocation") == 0) {
+                            $(".notification").html("User denide Geolocation.");
+                        } else {
+                            $(".notification").html(failure.message);
+                        }
+                    });
+            } else {
+                $(".notification").html("Geolocation is not supported by this browser.");
+            }
         }
-      });
-  } else {
-    $(".notification").html("Geolocation is not supported by this browser.");
-  }
-}
 
-function success(out) {
-  $(".section-notification").css("display", "none");
-  $(".section-weather").css("display", "-webkit-flex");
-  $(".section-weather").css("display", "flex");
-  $(".switch").css("display", "inline-block");
-  console.log(out);
-  $(".city").html(out.name + ", " + out.sys.country);
-  $(".temp").html(out.main.temp + "&#176;C");
-  $(".weather").html(out.weather[0].description);
-  $(".humidity").html(out.main.humidity);
-  //var i = "Clear";
-  //switch (i) {
-  switch (out.weather[0].main) {
-    case 'Dizzle':
-      $(".main").css("background", "url(https://raw.githubusercontent.com/Porush-Manjhi/Porush-Manjhi.github.io/master/FreeCodeCamp/LocalWeather/dizzle.png)");
-      break;
-    case 'Clouds':
-      $(".main").css("background", "url(https://raw.githubusercontent.com/Porush-Manjhi/Porush-Manjhi.github.io/master/FreeCodeCamp/LocalWeather/clouds.png)");
-      break;
-    case 'Rain':
-      $(".main").css("background", "url(https://raw.githubusercontent.com/Porush-Manjhi/Porush-Manjhi.github.io/master/FreeCodeCamp/LocalWeather/rain.png)");
-      break;
-    case 'Snow':
-      $(".main").css("background", "url(https://raw.githubusercontent.com/Porush-Manjhi/Porush-Manjhi.github.io/master/FreeCodeCamp/LocalWeather/snow.png)");
-      break;
-    case 'Clear':
-      $(".main").css("background", "url(https://raw.githubusercontent.com/Porush-Manjhi/Porush-Manjhi.github.io/master/FreeCodeCamp/LocalWeather/clear.png)");
-      break;
-    case 'Thunderstom':
-      $(".main").css("background", "url(https://raw.githubusercontent.com/Porush-Manjhi/Porush-Manjhi.github.io/master/FreeCodeCamp/LocalWeather/thunderstom.png)");
-      break;
-    default:
-  }
-  var temp = out.main.temp;
-  $(".switch").click(function() {
-    if ($(".switch").html() === "°F") {
-      $(".temp").html(temp * 1.8 + 32 + "°F");
-      $(".switch").html("°C");
-    } else {
-      $(".temp").html(temp + "°C");
-      $(".switch").html("°F");
-    }
-  });
-}
+        function success(out) {
+            $(".section-notification").css("display", "none");
+            $(".section-weather").css("display", "-webkit-flex");
+            $(".section-weather").css("display", "flex");
+            $(".switch").css("display", "inline-block");
+            console.log(out);
+            $(".city").html(out.name + ", " + out.sys.country);
+            $(".temp").html(out.main.temp + "&#176;C");
+            $(".weather").html(out.weather[0].description);
+            $(".humidity").html(out.main.humidity);
+            //var i = "Clear";
+            //switch (i) {
+            switch (out.weather[0].main) {
+                case 'Dizzle':
+                    $(".main").css("background", "url(https://raw.githubusercontent.com/Porush-Manjhi/Porush-Manjhi.github.io/master/FreeCodeCamp/LocalWeather/dizzle.png)");
+                    break;
+                case 'Clouds':
+                    $(".main").css("background", "url(https://raw.githubusercontent.com/Porush-Manjhi/Porush-Manjhi.github.io/master/FreeCodeCamp/LocalWeather/clouds.png)");
+                    break;
+                case 'Rain':
+                    $(".main").css("background", "url(https://raw.githubusercontent.com/Porush-Manjhi/Porush-Manjhi.github.io/master/FreeCodeCamp/LocalWeather/rain.png)");
+                    break;
+                case 'Snow':
+                    $(".main").css("background", "url(https://raw.githubusercontent.com/Porush-Manjhi/Porush-Manjhi.github.io/master/FreeCodeCamp/LocalWeather/snow.png)");
+                    break;
+                case 'Clear':
+                    $(".main").css("background", "url(https://raw.githubusercontent.com/Porush-Manjhi/Porush-Manjhi.github.io/master/FreeCodeCamp/LocalWeather/clear.png)");
+                    break;
+                case 'Thunderstom':
+                    $(".main").css("background", "url(https://raw.githubusercontent.com/Porush-Manjhi/Porush-Manjhi.github.io/master/FreeCodeCamp/LocalWeather/thunderstom.png)");
+                    break;
+                default:
+            }
+            var temp = out.main.temp;
+            $(".switch").click(function() {
+                if ($(".switch").html() === "°F") {
+                    $(".temp").html(temp * 1.8 + 32 + "°F");
+                    $(".switch").html("°C");
+                } else {
+                    $(".temp").html(temp + "°C");
+                    $(".switch").html("°F");
+                }
+            });
+        }
 
-function fail(out) {
-  $(".notification").html(out.statusText + " " + out.status);
-  console.log(out.statusText + " " + out.status);
-}
+        function fail(out) {
+            $(".notification").html(out.statusText + " " + out.status);
+            console.log(out.statusText + " " + out.status);
+        }
 
-function showWeather(lat, lon) {
-  $.getJSON('https://crossorigin.me/http://api.openweathermap.org/data/2.5/weather?callback=?', {
-    lat: lat,
-    lon: lon,
-    units: 'metric',
-    APPID: '66858e7a4a2f937d6774bc9860a9fe3c'
-  }, function() {}).done(success).fail(fail);
-}
+        function showWeather(lat, lon) {
+            $.getJSON('https://crossorigin.me/http://api.openweathermap.org/data/2.5/weather?callback=?', {
+                lat: lat,
+                lon: lon,
+                units: 'metric',
+                APPID: '66858e7a4a2f937d6774bc9860a9fe3c'
+            }, function() {}).done(success).fail(fail);
+        }
 
-$(document).ready(function() {
-  $(".close").click(function() {
-    $(".notification").hide();
-  });
-  $("#demo1").click(function() {
-    getLocation();
-  });
-  getLocation();
-});
+        $(document).ready(function() {
+            $(".close").click(function() {
+                $(".notification").hide();
+            });
+            $("#demo1").click(function() {
+                getLocation();
+            });
+            getLocation();
+        });
     </script>
     <style>
-      @media screen and (min-width: 352px) {
-  .main {
-    width: 320px;
-    height: 172px;
-    position: fixed;
-    right: calc(50% - 160px);
-    bottom: calc(50% - 86px);
-    border-radius: 6px;
-    background: url(https://raw.githubusercontent.com/Porush-Manjhi/Porush-Manjhi.github.io/master/FreeCodeCamp/LocalWeather/clear.png);
-    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.2), 2px 2px 8px rgba(0, 0, 0, 0.2);
-  }
-  .section-notification {
-    display: -webkit-flex;
-    display: flex;
-    -webkit-align-items: flex-end;
-    align-items: flex-end;
-    width: 100%;
-    height: 172px;
-    padding: 0px 0px;
-    border-radius: 6px;
-    background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5));
-    color: #ffffff;
-  }
-  .section-weather {
-    display: none;
-    -webkit-align-items: flex-end;
-    align-items: flex-end;
-    width: 100%;
-    height: 140px;
-    padding: 16px 0px;
-    border-radius: 6px;
-    background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5));
-    color: #ffffff;
-  }
-}
-
-@media screen and (max-width: 352px) {
-  body {
-    margin: auto;
-  }
-  .main {
-    width: 100%;
-    height: 172px;
-    background: url(https://raw.githubusercontent.com/Porush-Manjhi/Porush-Manjhi.github.io/master/FreeCodeCamp/LocalWeather/clear.png);
-    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.2), 2px 2px 8px rgba(0, 0, 0, 0.2);
-  }
-  .section-notification {
-    display: -webkit-flex;
-    display: flex;
-    -webkit-align-items: flex-end;
-    align-items: flex-end;
-    width: 100%;
-    height: 172px;
-    padding: 0px 0px;
-    background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5));
-    color: #ffffff;
-  }
-  .section-weather {
-    display: none;
-    -webkit-align-items: flex-end;
-    align-items: flex-end;
-    width: 100%;
-    height: 140px;
-    padding: 16px 0px;
-    background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5));
-    color: #ffffff;
-  }
-}
-
-body {
-  background: #e5e5e5;
-  font-family: 'Roboto Condensed', sans-serif;
-  -webkit-touch-callout: none;
-  /* iOS Safari */
-  -webkit-user-select: none;
-  /* Chrome/Safari/Opera */
-  -khtml-user-select: none;
-  /* Konqueror */
-  -moz-user-select: none;
-  /* Firefox */
-  -ms-user-select: none;
-  /* Internet Explorer/Edge */
-  user-select: none;
-}
-
-.notification {
-  display: inline-block;
-  flex-grow: 1;
-  border: 0px solid #ffffff;
-  padding: 16px;
-}
-
-h1,
-h2,
-p {
-  margin: 0px;
-}
-
-hr {
-  display: block;
-  height: 1px;
-  border: 0px;
-  border-top: 2px solid #ffffff;
-  margin: 16px 0;
-  padding: 0;
-}
-
-.section-l {
-  display: inline-block;
-  flex-grow: 1;
-  padding: 0px 16px;
-  border-right: solid 1px #ffffff;
-}
-
-.section-c {
-  display: inline-block;
-  flex-grow: 1;
-  padding: 0px 16px;
-  border-right: solid 1px #ffffff;
-}
-
-.section-r {
-  display: inline-block;
-  flex-grow: 2;
-  padding: 0px 16px;
-}
-
-.switch {
-  display: none;
-  position: absolute;
-  top: 16px;
-  right: 16px;
-  font-size: 24px;
-  border-radius: 4px;
-  padding: 0px 4px;
-  color: #ffffff;
-}
-
-.switch:hover {
-  background: rgba(0, 0, 0, 0.25);
-  cursor: pointer;
-}
+        @media screen and (min-width: 352px) {
+            .main {
+                width: 320px;
+                height: 172px;
+                position: fixed;
+                right: calc(50% - 160px);
+                bottom: calc(50% - 86px);
+                border-radius: 6px;
+                background: url(https://raw.githubusercontent.com/Porush-Manjhi/Porush-Manjhi.github.io/master/FreeCodeCamp/LocalWeather/clear.png);
+                box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.2), 2px 2px 8px rgba(0, 0, 0, 0.2);
+            }
+            .section-notification {
+                display: -webkit-flex;
+                display: flex;
+                -webkit-align-items: flex-end;
+                align-items: flex-end;
+                width: 100%;
+                height: 172px;
+                padding: 0px 0px;
+                border-radius: 6px;
+                background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5));
+                color: #ffffff;
+            }
+            .section-weather {
+                display: none;
+                -webkit-align-items: flex-end;
+                align-items: flex-end;
+                width: 100%;
+                height: 140px;
+                padding: 16px 0px;
+                border-radius: 6px;
+                background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5));
+                color: #ffffff;
+            }
+        }
+        @media screen and (max-width: 352px) {
+            body {
+                margin: auto;
+            }
+            .main {
+                width: 100%;
+                height: 172px;
+                background: url(https://raw.githubusercontent.com/Porush-Manjhi/Porush-Manjhi.github.io/master/FreeCodeCamp/LocalWeather/clear.png);
+                box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.2), 2px 2px 8px rgba(0, 0, 0, 0.2);
+            }
+            .section-notification {
+                display: -webkit-flex;
+                display: flex;
+                -webkit-align-items: flex-end;
+                align-items: flex-end;
+                width: 100%;
+                height: 172px;
+                padding: 0px 0px;
+                background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5));
+                color: #ffffff;
+            }
+            .section-weather {
+                display: none;
+                -webkit-align-items: flex-end;
+                align-items: flex-end;
+                width: 100%;
+                height: 140px;
+                padding: 16px 0px;
+                background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5));
+                color: #ffffff;
+            }
+        }
+        body {
+            background: #e5e5e5;
+            font-family: 'Roboto Condensed', sans-serif;
+            -webkit-touch-callout: none;
+            /* iOS Safari */
+            
+            -webkit-user-select: none;
+            /* Chrome/Safari/Opera */
+            
+            -khtml-user-select: none;
+            /* Konqueror */
+            
+            -moz-user-select: none;
+            /* Firefox */
+            
+            -ms-user-select: none;
+            /* Internet Explorer/Edge */
+            
+            user-select: none;
+        }
+        .notification {
+            display: inline-block;
+            flex-grow: 1;
+            border: 0px solid #ffffff;
+            padding: 16px;
+        }
+        h1,
+        h2,
+        p {
+            margin: 0px;
+        }
+        hr {
+            display: block;
+            height: 1px;
+            border: 0px;
+            border-top: 2px solid #ffffff;
+            margin: 16px 0;
+            padding: 0;
+        }
+        .section-l {
+            display: inline-block;
+            flex-grow: 1;
+            padding: 0px 16px;
+            border-right: solid 1px #ffffff;
+        }
+        .section-c {
+            display: inline-block;
+            flex-grow: 1;
+            padding: 0px 16px;
+            border-right: solid 1px #ffffff;
+        }
+        .section-r {
+            display: inline-block;
+            flex-grow: 2;
+            padding: 0px 16px;
+        }
+        .switch {
+            display: none;
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            font-size: 24px;
+            border-radius: 4px;
+            padding: 0px 4px;
+            color: #ffffff;
+        }
+        .switch:hover {
+            background: rgba(0, 0, 0, 0.25);
+            cursor: pointer;
+        }
     </style>
-  </head>
-  <body>
+</head>
+
+<body>
     <div class="main">
-  <div class="section-notification">
-    <div class="notification">Loading...</div>
-  </div>
-  <div class="section-weather">
-    <div class="section-l">
-      <p class="city">Unknown</p>
-      <p class="temp">None</p>
+        <div class="section-notification">
+            <div class="notification">Loading...</div>
+        </div>
+        <div class="section-weather">
+            <div class="section-l">
+                <p class="city">Unknown</p>
+                <p class="temp">None</p>
+            </div>
+            <div class="section-c">
+                <p>Weather</p>
+                <p class="weather">None</p>
+            </div>
+            <div class="section-r">
+                <p>Humidity</p>
+                <p class="humidity">None</p>
+            </div>
+        </div>
+        <div class="switch">
+            &#176;F
+        </div>
     </div>
-    <div class="section-c">
-      <p>Weather</p>
-      <p class="weather">None</p>
-    </div>
-    <div class="section-r">
-      <p>Humidity</p>
-      <p class="humidity">None</p>
-    </div>
-  </div>
-  <div class="switch">
-    &#176;F
-  </div>
-</div><br>
-<center>By Porush Manjhi.</center>
-  </body>
+    <br>
+    <center>By Porush Manjhi.</center>
+</body>
+
 </html>
