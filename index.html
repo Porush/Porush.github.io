@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en-us">
-  <head>
+
+<head>
     <meta charset="UTF-8">
     <title>Porush Manjhi's Portfolio</title>
     <link rel="manifest" href="manifest.json">
@@ -17,21 +18,53 @@
     <link rel="stylesheet" type="text/css" href="stylesheet.css">
     <!-- Preloader -->
     <script type="text/javascript">
-    //<![CDATA[
+        //<![CDATA[
         $(window).load(function() { // makes sure the whole site is loaded
-            $('#status').fadeOut(); // will first fade out the loading animation
-            $('#preloader').delay(350).fadeOut('slow'); // will fade out the white DIV that covers the website.
-            $('body').delay(350).css({'overflow':'visible'});
-        })
-    //]]>
-  </script>
-  </head>
-  <body>
+                $('#status').fadeOut(); // will first fade out the loading animation
+                $('#preloader').delay(350).fadeOut('slow'); // will fade out the white DIV that covers the website.
+                $('body').delay(350).css({
+                    'overflow': 'visible'
+                });
+            })
+            //]]>
+
+        // Google Analytics Start
+        (function(i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function() {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+            a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-85743788-1', 'auto');
+        ga('send', 'pageview');
+        // Google Analytics End
+
+        // OneSignal Start
+        var OneSignal = window.OneSignal || [];
+        OneSignal.push(["init", {
+            appId: "682fed89-588e-415c-be29-ed503be3d91f",
+            autoRegister: true,
+            notifyButton: {
+                enable: false /* Set to false to hide */
+            }
+        }]);
+        // OneSignal End
+    </script>
+</head>
+
+<body>
     <!-- Preloader -->
     <div id="preloader">
-      <div id="status">&nbsp;</div>
+        <div id="status">&nbsp;</div>
     </div>
     <div id="header" style="height:100px;"></div>
     <div id="center">Under Construction</div>
-  </body>
+</body>
+
 </html>
