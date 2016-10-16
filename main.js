@@ -17,14 +17,11 @@ ga('send', 'pageview');
 
 // OneSignal Start
 var OneSignal = window.OneSignal || [];
-OneSignal.push(["init", {
-    appId: "682fed89-588e-415c-be29-ed503be3d91f",
-    autoRegister: true,
-    /* Set to true to automatically prompt visitors */
-    subdomainName: 'porush',
-    safari_web_id: '3145fc89-5d6b-4727-99ef-e9ab80472582',
-    notifyButton: {
+    OneSignal.push(["init", {
+      appId: "682fed89-588e-415c-be29-ed503be3d91f",
+      autoRegister: true,
+      notifyButton: {
         enable: false /* Set to false to hide */
-    }
+      }
 }]);
 // OneSignal End
