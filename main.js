@@ -21,10 +21,10 @@ OneSignal.push(["init", {
     appId: "682fed89-588e-415c-be29-ed503be3d91f",
     autoRegister: true,
     /* Set to true to automatically prompt visitors */
-    subdomainName: 'porush-manjhi',
+    subdomainName: 'porush',
     safari_web_id: '3145fc89-5d6b-4727-99ef-e9ab80472582',
     notifyButton: {
-        enable: true /* Set to false to hide */
+        enable: false /* Set to false to hide */
     }
 }]);
 // OneSignal End
