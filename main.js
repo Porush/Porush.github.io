@@ -24,7 +24,7 @@ OneSignal.push(["init", {
     subdomainName: 'porush-manjhi',
     safari_web_id: '3145fc89-5d6b-4727-99ef-e9ab80472582',
     notifyButton: {
-        enable: false /* Set to false to hide */
+        enable: true /* Set to false to hide */
     }
 }]);
 // OneSignal End
