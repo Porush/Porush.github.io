@@ -1,4 +1,7 @@
 {
-  "name": "Push Notifications",
-  "gcm_sender_id": "248012017734"
+  "name": "YOUR_SITE_NAME",
+  "short_name": "YOUR_SITE_NAME",
+  "start_url": "/",
+  "display": "standalone",
+  "gcm_sender_id": "482941778795"
 }
